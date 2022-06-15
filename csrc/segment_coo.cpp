@@ -227,11 +227,3 @@ torch::Tensor gather_coo(torch::Tensor src, torch::Tensor index,
                          torch::optional<torch::Tensor> optional_out) {
   return GatherCOO::apply(src, index, optional_out)[0];
 }
-
-static auto registry =
-    torch::RegisterOperators()
-        .op("torch_scatter::segment_sum_coo", &segment_sum_coo)
-        .op("torch_scatter::segment_mean_coo", &segment_mean_coo)
-        .op("torch_scatter::segment_min_coo", &segment_min_coo)
-        .op("torch_scatter::segment_max_coo", &segment_max_coo)
-        .op("torch_scatter::gather_coo", &gather_coo);

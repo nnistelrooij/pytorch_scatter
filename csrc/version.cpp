@@ -22,6 +22,3 @@ int64_t cuda_version() noexcept {
 #endif
 }
 } // namespace scatter
-
-static auto registry = torch::RegisterOperators().op(
-    "torch_scatter::cuda_version", &scatter::cuda_version);

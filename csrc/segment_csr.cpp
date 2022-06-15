@@ -220,11 +220,3 @@ torch::Tensor gather_csr(torch::Tensor src, torch::Tensor indptr,
                          torch::optional<torch::Tensor> optional_out) {
   return GatherCSR::apply(src, indptr, optional_out)[0];
 }
-
-static auto registry =
-    torch::RegisterOperators()
-        .op("torch_scatter::segment_sum_csr", &segment_sum_csr)
-        .op("torch_scatter::segment_mean_csr", &segment_mean_csr)
-        .op("torch_scatter::segment_min_csr", &segment_min_csr)
-        .op("torch_scatter::segment_max_csr", &segment_max_csr)
-        .op("torch_scatter::gather_csr", &gather_csr);

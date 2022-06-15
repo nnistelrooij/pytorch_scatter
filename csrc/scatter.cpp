@@ -259,10 +259,3 @@ scatter_max(torch::Tensor src, torch::Tensor index, int64_t dim,
   auto result = ScatterMax::apply(src, index, dim, optional_out, dim_size);
   return std::make_tuple(result[0], result[1]);
 }
-
-static auto registry = torch::RegisterOperators()
-                           .op("torch_scatter::scatter_sum", &scatter_sum)
-                           .op("torch_scatter::scatter_mul", &scatter_mul)
-                           .op("torch_scatter::scatter_mean", &scatter_mean)
-                           .op("torch_scatter::scatter_min", &scatter_min)
-                           .op("torch_scatter::scatter_max", &scatter_max);
